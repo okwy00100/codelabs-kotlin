@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KotlinCodelabs">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".SnackBar.SnackbarActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Toast.ToastActivity"
+            android:exported="true" />
+        <activity android:name=".Main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
