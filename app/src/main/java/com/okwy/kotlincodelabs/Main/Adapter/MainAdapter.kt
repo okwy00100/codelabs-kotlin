@@ -13,8 +13,8 @@ class MainAdapter(
     private val context: Context,
     private val conceptList: List<String>?,
     private val listItemClickListener: ListItemClickListener
-) :
-    RecyclerView.Adapter<MainAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
+
     interface ListItemClickListener {
         fun onListItemClick(menuItem: String?, position: Int)
     }
@@ -34,7 +34,7 @@ class MainAdapter(
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-//        var menuItem: TextView
+        //        var menuItem: TextView
         var menuItem: TextView = itemView.findViewById(R.id.menuItem)
         fun bind(item: String?, listItemClickListener: ListItemClickListener) {
             menuItem.text = item
