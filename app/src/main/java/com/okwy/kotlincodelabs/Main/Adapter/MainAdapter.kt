@@ -39,10 +39,7 @@ class MainAdapter(
         fun bind(item: String?, listItemClickListener: ListItemClickListener) {
             menuItem.text = item
             itemView.setOnClickListener {
-                listItemClickListener.onListItemClick(
-                    item,
-                    this@ViewHolder.adapterPosition
-                )
+                listItemClickListener.onListItemClick(item, this@ViewHolder.adapterPosition)
             }
         }
 

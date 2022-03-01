@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.okwy.kotlincodelabs.Coroutines.CoroutineActivity
+import com.okwy.kotlincodelabs.DiceRoller.DiceRollerActivity
+import com.okwy.kotlincodelabs.IntentsWithActivities.IntentActivity
 import com.okwy.kotlincodelabs.Main.Adapter.MainAdapter
 import com.okwy.kotlincodelabs.R
 import com.okwy.kotlincodelabs.SnackBar.SnackbarActivity
@@ -41,7 +44,9 @@ class MainActivity : AppCompatActivity(), MainAdapter.ListItemClickListener {
 //        conceptList.add("Foreground Service")
 //        conceptList.add("Broadcast Receivers")
 //        conceptList.add("Android Architecture")
-//        conceptList.add("Intents and Activities")
+        conceptList.add("Intents and Activities")
+        conceptList.add("Coroutines")
+        conceptList.add("Dice Roller")
 //        conceptList.add("Drawables, Styles and Themes")
 //        conceptList.add("App Settings and Preferences")
         println(conceptList.toString())
@@ -72,7 +77,9 @@ class MainActivity : AppCompatActivity(), MainAdapter.ListItemClickListener {
 //            "Broadcast Receivers" -> startActivity(Intent(this, BroadcastReceiverActivity::class.java))
 //            "Android Architecture" -> startActivity(Intent(this, NoteActivity::class.java))
 //            "Coordinator Layout" -> startActivity(Intent(this, CoordinatorLayoutActivity::class.java))
-//            "Intents and Activities" -> startActivity(Intent(this, IntentActivity::class.java))
+            "Intents and Activities" -> startActivity(Intent(this, IntentActivity::class.java))
+            "Coroutines" -> startActivity(Intent(this, CoroutineActivity::class.java))
+            "Dice Roller" -> startActivity(Intent(this, DiceRollerActivity::class.java))
 //            "Drawables, Styles and Themes" -> startActivity(Intent(this, ScoreKeeperActivity::class.java))
         }
     }

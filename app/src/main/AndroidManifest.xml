@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KotlinCodelabs">
         <activity
+            android:name=".DiceRoller.DiceRollerActivity"
+            android:exported="true" />
+        <activity
+            android:name=".IntentsWithActivities.SecondIntentActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Coroutines.CoroutineActivity"
+            android:exported="true" />
+        <activity
+            android:name=".IntentsWithActivities.IntentActivity"
+            android:exported="true" />
+        <activity
             android:name=".SnackBar.SnackbarActivity"
             android:exported="true" />
         <activity

@@ -19,9 +19,9 @@ class IntentActivity : AppCompatActivity() {
 
     private val LOG_TAG = MainActivity::class.java.simpleName
 
-    private var editTextMain: EditText? = null
-    private var replyReceived: TextView? = null
-    private var replyMessage: TextView? = null
+    private lateinit var editTextMain: EditText
+    private lateinit var replyReceived: TextView
+    private lateinit var replyMessage: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +39,7 @@ class IntentActivity : AppCompatActivity() {
         println(">>>getCanonicalName>>>" + MainActivity::class.java.canonicalName)
 
         val intent = Intent(this, SecondIntentActivity::class.java)
-        intent.putExtra(EXTRA_STRING, editTextMain?.text.toString())
+        intent.putExtra(EXTRA_STRING, editTextMain.text.toString())
         startActivityForResult(intent, TEXT_REQUEST)
 
     }
@@ -49,9 +49,9 @@ class IntentActivity : AppCompatActivity() {
 
         if(requestCode == TEXT_REQUEST){
             if(resultCode == RESULT_OK){
-                replyMessage?.visibility = VISIBLE
-                replyReceived?.visibility = VISIBLE
-                replyMessage?.text = data!!.getStringExtra(SecondIntentActivity.EXTRA_REPLY)
+                replyMessage.visibility = VISIBLE
+                replyReceived.visibility = VISIBLE
+                replyMessage.text = data!!.getStringExtra(SecondIntentActivity.EXTRA_REPLY)
             }
         }
 
