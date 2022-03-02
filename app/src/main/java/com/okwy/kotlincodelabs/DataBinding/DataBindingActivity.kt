@@ -29,11 +29,14 @@ class DataBindingActivity : AppCompatActivity() {
 //        val editText = findViewById<EditText>(R.id.editText)
 //        val doneButton: Button = findViewById(R.id.done_button)
 
-        binding.editText.visibility = View.VISIBLE
         view.visibility = View.GONE
-        binding.doneButton.visibility = View.VISIBLE
 
-        binding.editText.requestFocus()
+        binding.apply {
+            editText.visibility = View.VISIBLE
+            doneButton.visibility = View.VISIBLE
+            editText.requestFocus()
+        }
+
         val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.showSoftInput(binding.editText, 0)
 
@@ -47,10 +50,13 @@ class DataBindingActivity : AppCompatActivity() {
 //        val editText = findViewById<EditText>(R.id.editText)
 //        val nicknameText = findViewById<TextView>(R.id.nickname_text)
 
-        binding.nicknameText.text = binding.editText.text
-        binding.editText.visibility = View.GONE
         view.visibility = View.GONE
-        binding.nicknameText.visibility = View.VISIBLE
+
+        binding.apply {
+            binding.nicknameText.text = binding.editText.text
+            binding.editText.visibility = View.GONE
+            binding.nicknameText.visibility = View.VISIBLE
+        }
 
         val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
