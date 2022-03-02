@@ -34,13 +34,16 @@ class ToastActivity : AppCompatActivity() {
         Log.i("Custom toast", "Inside method")
         val layout: View = layoutInflater.inflate(
             R.layout.activity_toast_custom,
-            findViewById<View>(R.id.toast_custom) as ViewGroup
+            findViewById<View>(R.id.toast_custom) as? ViewGroup
         )
         val toaster = Toast(applicationContext)
-        toaster.duration = Toast.LENGTH_LONG
-        toaster.setGravity(Gravity.CENTER_VERTICAL, 0, 0)
-        toaster.setView(layout)
-        toaster.show()
+//        this.duration = Toast.LENGTH_LONG
+        with(toaster) {
+            duration = Toast.LENGTH_LONG
+            setGravity(Gravity.CENTER_VERTICAL, 0, 0)
+            setView(layout)
+            show()
+        }
         Log.i("Custom toast", "Past toast.show()")
     }
 }
