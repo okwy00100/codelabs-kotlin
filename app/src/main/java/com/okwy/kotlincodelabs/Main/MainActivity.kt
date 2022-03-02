@@ -6,8 +6,10 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.okwy.kotlincodelabs.Coroutines.CoroutineActivity
+import com.okwy.kotlincodelabs.DataBinding.DataBindingActivity
 import com.okwy.kotlincodelabs.DiceRoller.DiceRollerActivity
 import com.okwy.kotlincodelabs.IntentsWithActivities.IntentActivity
+import com.okwy.kotlincodelabs.Layouts.AboutMeActivity
 import com.okwy.kotlincodelabs.Main.Adapter.MainAdapter
 import com.okwy.kotlincodelabs.R
 import com.okwy.kotlincodelabs.SnackBar.SnackbarActivity
@@ -46,6 +48,8 @@ class MainActivity : AppCompatActivity(), MainAdapter.ListItemClickListener {
 //        conceptList.add("Android Architecture")
         conceptList.add("Intents and Activities")
         conceptList.add("Coroutines")
+        conceptList.add("Layouts")
+        conceptList.add("Data Binding")
         conceptList.add("Dice Roller")
 //        conceptList.add("Drawables, Styles and Themes")
 //        conceptList.add("App Settings and Preferences")
@@ -79,7 +83,10 @@ class MainActivity : AppCompatActivity(), MainAdapter.ListItemClickListener {
 //            "Coordinator Layout" -> startActivity(Intent(this, CoordinatorLayoutActivity::class.java))
             "Intents and Activities" -> startActivity(Intent(this, IntentActivity::class.java))
             "Coroutines" -> startActivity(Intent(this, CoroutineActivity::class.java))
+            "Layouts" -> startActivity(Intent(this, AboutMeActivity::class.java))
+            "Data Binding" -> startActivity(Intent(this, DataBindingActivity::class.java))
             "Dice Roller" -> startActivity(Intent(this, DiceRollerActivity::class.java))
+
 //            "Drawables, Styles and Themes" -> startActivity(Intent(this, ScoreKeeperActivity::class.java))
         }
     }
