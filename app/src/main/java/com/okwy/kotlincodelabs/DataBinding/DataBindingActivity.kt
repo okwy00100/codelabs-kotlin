@@ -5,23 +5,27 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import com.okwy.kotlincodelabs.R
 import com.okwy.kotlincodelabs.databinding.ActivityDataBindingBinding
+import com.okwy.kotlincodelabs.models.MyName
 
 class DataBindingActivity : AppCompatActivity() {
-    lateinit var binding : ActivityDataBindingBinding
+    lateinit var binding: ActivityDataBindingBinding
+    private val myName = MyName("Okwy Nwachukwu")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_data_binding)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_data_binding)
 
-        binding.doneButton.setOnClickListener { addNickname(it) }
-        binding.nicknameText.setOnClickListener { updateNickname(it) }
+        binding.myName = myName
+
+        binding.apply {
+            doneButton.setOnClickListener { addNickname(it) }
+            nicknameText.setOnClickListener { updateNickname(it) }
+        }
+
     }
 
 
@@ -53,12 +57,15 @@ class DataBindingActivity : AppCompatActivity() {
         view.visibility = View.GONE
 
         binding.apply {
-            binding.nicknameText.text = binding.editText.text
-            binding.editText.visibility = View.GONE
-            binding.nicknameText.visibility = View.VISIBLE
+            myName?.nickname = nicknameText.text.toString()
+            invalidateAll()
+            nicknameText.text = editText.text
+            editText.visibility = View.GONE
+            nicknameText.visibility = View.VISIBLE
         }
 
-        val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val inputMethodManager =
+            getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }
